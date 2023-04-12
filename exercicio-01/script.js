@@ -23,9 +23,9 @@ form.addEventListener("submit", (event) => {
   const inputs = form.querySelectorAll("input");
   verificaInput(inputs)
   const { largura, comprimento, valor } = event.target;
-  const inputLargura = parseNumber(largura.value);
-  const inputComprimento = parseNumber(comprimento.value);
-  const inputValorMentro = parseNumber(valor.value);
+  const inputLargura = parseNumber(largura.value.replace(",", "."));
+  const inputComprimento = parseNumber(comprimento.value.replace(",", "."));
+  const inputValorMentro = parseNumber(valor.value.replace(",", "."));
   const valorAreametro = inputLargura * inputComprimento;
   areaTerreno.textContent = `Área do terreno = ${valorAreametro.toFixed(2)}`;
   precoTerreno.textContent = `Preço do terreno = ${(valorAreametro * inputValorMentro).toFixed(2)}`;
