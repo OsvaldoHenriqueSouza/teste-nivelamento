@@ -21,7 +21,7 @@ const verificaInput = elements => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   const inputs = form.querySelectorAll("input");
-  verificaInput(inputs)
+  verificaInput(inputs);
   const { largura, comprimento, valor } = event.target;
   const inputLargura = parseNumber(largura.value.replace(",", "."));
   const inputComprimento = parseNumber(comprimento.value.replace(",", "."));
