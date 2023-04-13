@@ -4,24 +4,22 @@ const precoTerreno = document.body.querySelector("#preco-terreno");
 
 const parseNumber = input => Number(input);
 
+
 const regex = /[0-9]/i;
 
+const inputs = form.querySelectorAll("input");
 
-const verificaInput = elements => {
-  elements.forEach((item) => {
-    item.addEventListener("keyup", ({ target }) => {
-      const validacao = regex.test(target.value);
-      if (!validacao) {
-        target.value = "";
-      }
-    });
+inputs.forEach((item) => {
+  item.addEventListener("keyup", ({ target }) => {
+    const validacao = regex.test(target.value);
+    if (!validacao) {
+      target.value = "";
+    }
   });
-}
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const inputs = form.querySelectorAll("input");
-  verificaInput(inputs);
   const { largura, comprimento, valor } = event.target;
   const inputLargura = parseNumber(largura.value.replace(",", "."));
   const inputComprimento = parseNumber(comprimento.value.replace(",", "."));
