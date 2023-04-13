@@ -11,19 +11,8 @@ const calculaAreaQuadrado = lado => lado ** 2;
 
 const calculaAreaTriangulo = (base, altura) => (base * altura) / 2;
 
-const calculaAreaTrapezio = (baseMaior, baseMenor, altura) => (baseMaior + baseMenor) * altura / 2;
-
-const verificaInput = elements => {
-  const regex = /[0-9]/i;
-  elements.forEach((item) => {
-    item.addEventListener("keyup", ({ target }) => {
-      const validacao = regex.test(target.value);
-      if (!validacao) {
-        target.value = "";
-      }
-    });
-  });
-}
+const calculaAreaTrapezio = (baseMaior, baseMenor, altura) =>
+  (baseMaior + baseMenor) * altura / 2;
 
 verificaInput(input);
 
