@@ -4,19 +4,8 @@ const inputs = form.querySelectorAll("input");
 
 const parseNumber = input => Number(input);
 
-const calculaTroco = (precoProduto, quantidade, dinheiroRecebido) => dinheiroRecebido - (precoProduto * quantidade);
-
-const verificaInput = elements => {
-  const regex = /[0-9]/i;
-  elements.forEach((item) => {
-      item.addEventListener("keyup", ({ target }) => {
-        const validacao = regex.test(target.value);
-        if (!validacao) {
-          target.value = "";
-        }
-      });
-  });
-}
+const calculaTroco = (precoProduto, quantidade, dinheiroRecebido) =>
+  dinheiroRecebido - (precoProduto * quantidade);
 
 verificaInput(inputs);
 
