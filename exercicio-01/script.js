@@ -1,22 +1,13 @@
 const form = document.body.querySelector("form");
 const areaTerreno = document.body.querySelector("#area-terreno");
 const precoTerreno = document.body.querySelector("#preco-terreno");
+const inputs = form.querySelectorAll("input");
 
 const parseNumber = input => Number(input);
 
-
 const regex = /[0-9]/i;
 
-const inputs = form.querySelectorAll("input");
-
-inputs.forEach((item) => {
-  item.addEventListener("keyup", ({ target }) => {
-    const validacao = regex.test(target.value);
-    if (!validacao) {
-      target.value = "";
-    }
-  });
-});
+verificaInput(inputs);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
