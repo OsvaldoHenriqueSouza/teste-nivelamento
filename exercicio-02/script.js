@@ -2,21 +2,13 @@ const form = document.body.querySelector("form");
 const inputArea = document.body.querySelector("#area");
 const inputPerimetro = document.body.querySelector("#perimetro");
 const inputDiagonal = document.body.querySelector("#diagonal");
+const inputs = form.querySelectorAll("input");
 
 const parseNumber = input => Number(input);
 
 const regex = /[0-9]/i;
 
-const inputs = form.querySelectorAll("input");
-
-inputs.forEach((item) => {
-  item.addEventListener("keyup", ({ target }) => {
-    const validacao = regex.test(target.value);
-    if (!validacao) {
-      target.value = "";
-    }
-  });
-});
+verificaInput(inputs)
 
 const calculaAreaRetangulo = (base, altura) => base * altura;
 
