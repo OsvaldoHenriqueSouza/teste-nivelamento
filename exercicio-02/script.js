@@ -8,7 +8,7 @@ const parseNumber = input => Number(input);
 
 const regex = /[0-9]/i;
 
-verificaInput(inputs)
+verificaInput(inputs);
 
 const calculaAreaRetangulo = (base, altura) => base * altura;
 

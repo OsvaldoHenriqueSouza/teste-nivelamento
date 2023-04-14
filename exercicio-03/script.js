@@ -1,22 +1,14 @@
 const form = document.body.querySelector("form");
 const resultado = document.body.querySelector("#resultado");
+const inputNomes = form.querySelectorAll(".idades");
 
 const parseNumber = input => Number(input);
 
 const calculaMedia = (numero1, numero2) => (numero1 + numero2) / 2;
 
-const inputNomes = form.querySelectorAll(".idades");
-
 const regex = /[0-9]/i;
 
-inputNomes.forEach((item) => {
-  item.addEventListener("keyup", ({ target }) => {
-    const validacao = regex.test(target.value);
-    if (!validacao) {
-      target.value = "";
-    }
-  });
-});
+verificaInput(inputNomes);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
