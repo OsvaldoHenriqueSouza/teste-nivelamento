@@ -6,7 +6,7 @@ const parseNumber = input => Number(input);
 
 const verificaMenorValor = (primeiroValor, segundoValor, terceiroValor) => {
   const valores = [primeiroValor, segundoValor, terceiroValor];
-  const [ordenaValores] = valores.sort();
+  const [ordenaValores] = valores.sort((a, b) => a - b);
   return ordenaValores;
 }
 
