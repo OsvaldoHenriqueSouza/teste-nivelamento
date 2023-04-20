@@ -29,8 +29,6 @@ const calculaRaiz = (coefA ,coefB, coefC) => {
   }
 }
 
-console.log(calculaRaiz(1,3,4));
-
 verificaInput(input);
 
 form.addEventListener("submit", (event) => {
@@ -40,7 +38,6 @@ form.addEventListener("submit", (event) => {
   const inputSegundo = parseNumber(segundo.value.replace(",", "."));
   const inputTerceiro = parseNumber(terceiro.value.replace(",", "."));
   const resultado = calculaRaiz(inputPrimeiro, inputSegundo, inputTerceiro);
-  console.log(typeof resultado[0])
   x1.textContent = `X1 = ${resultado[0].toFixed(4)}`;
   x2.textContent = `X2 = ${resultado[1].toFixed(4)}`;
   invalido.textContent = `${resultado[0]}`;
