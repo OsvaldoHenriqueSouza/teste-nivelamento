@@ -1,27 +1,18 @@
 const form = document.body.querySelector("form");
 const trocoSuficiente = document.body.querySelector("#suficiente");
 const inputs = form.querySelectorAll("input");
+const criaElementP = document.createElement('p');
 
 const parseNumber = input => Number(input);
 
 const calculaTroco = (precoProduto, quantidade, dinheiroRecebido) => {
   const troco = dinheiroRecebido - (precoProduto * quantidade);
-  const criaElementP = document.createElement('p');
-  
-  if (troco < 0) {
-    const valorInsuficiente = Math.abs(troco);
-    criaElementP.innerText = `DINHEIRO INSUFICIENTE. FALTAM ${valorInsuficiente} REAIS`;
-    form.appendChild(criaElementP);
-    return;
-  }
-
-  if (criaElementP.parentNode) {
-    criaElementP.parentNode.removeChild(criaElementP);
-  }
-  return troco;
-}
-
-verificaInput(inputs);
+  const valorInsuficiente = Math.abs(troco);
+  const mensagemValorInsuficiente = `DINHEIRO INSUFICIENTE. FALTAM ${valorInsuficiente} REAIS`;
+  const messagemFinal = troco < 0 ? mensagemValorInsuficiente : `TROCO = ${troco.toFixed(2)}`;
+  criaElementP.textContent = messagemFinal;
+  form.insertAdjacentElement('afterend', criaElementP);
+};
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -29,6 +20,5 @@ form.addEventListener("submit", (event) => {
   const inputPreco = parseNumber(preco.value.replace(",", "."));
   const inputQuantidade = parseNumber(quantidade.value.replace(",", "."));
   const inputDinheiro = parseNumber(dinheiro.value.replace(",", "."));
-  const troco = calculaTroco(inputPreco, inputQuantidade, inputDinheiro).toFixed(2);
-  trocoSuficiente.textContent = `TROCO = ${troco}`;
+  calculaTroco(inputPreco, inputQuantidade, inputDinheiro);
 });
